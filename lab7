@@ -5,7 +5,7 @@
  from sys import exit
  pygame.init()
  screna = pygame.display.set_mode((1050,700))
- pygame.display.set_caption('arman')
+ pygame.display.set_caption('ako')
  x = 525
  y = 325
  clock = pygame.time.Clock()
@@ -39,7 +39,7 @@
  #task oclock
  pygame.init()
  screan = pygame.display.set_mode((1000,650))
- pygame.display.set_caption('arman')
+ pygame.display.set_caption('aqzhol')
  photo = pygame.transform.scale(pygame.image.load("/Users/armanbegman/Downloads/clock.png"),(1000,650))
  rightarm  = pygame.transform.scale(pygame.image.load("/Users/armanbegman/Downloads/rightarm.png"),(1000,650))
  leftarm = pygame.transform.scale(pygame.image.load("/Users/armanbegman/Downloads/leftarm.png"),(1050,650))
@@ -71,11 +71,11 @@
  pygame.init()
  
  playlist = []
- # музыкалар орналасқан жерге path 
+ # музыка
  music_folder = "/Users/armanbegman/Desktop/play list"
  allmusic = os.listdir(music_folder)
  
- # playlist-қа .mp3 деп аяқталса қосамыз 
+ # playlist-қа .mp3
  for song in allmusic:
      if song.endswith(".mp3"):
          playlist.append(os.path.join(music_folder, song))
@@ -84,14 +84,14 @@
  pygame.display.set_caption("Darkhan-Juzz")
  clock = pygame.time.Clock()
  
- # кнопкалар тұратын жердің фонын жасаймыз, алдымен көлемі, сосын RGB ақ түс
+ # кнопкалар тұратын жердің фонын жасаймыз, алдымен көлемі, сосын RGB ақ тү
  bg = pygame.Surface((500, 200))
  bg.fill((255, 255, 255))
  
- # плейлист аты шығып тұратын жер көлемі
+ # плейлист аты 
  font2 = pygame.font.SysFont(None, 20)
  
- # кнопкаларды папкадан енгіземіз
+ # кнопкаларды папкадан енгізy
  playb = pygame.image.load(os.path.join("/Users/armanbegman/Desktop/play.png"))
  pausb = pygame.image.load(os.path.join("/Users/armanbegman/Desktop/pause.png"))
  nextb = pygame.image.load(os.path.join("/Users/armanbegman/Desktop/next.png"))
@@ -112,8 +112,8 @@
              run = False
              pygame.quit()
              exit()
-         elif event.type == pygame.KEYDOWN: #клавишты басса
-             if event.key == pygame.K_SPACE: #егер пробелге тең болса
+         elif event.type == pygame.KEYDOWN: 
+             if event.key == pygame.K_SPACE: 
                  if aplay:
                      aplay = False
                      pygame.mixer.music.pause()
@@ -121,19 +121,19 @@
                      aplay = True
                      pygame.mixer.music.unpause()
  
-             if event.key == pygame.K_RIGHT: #егер оң жаққа тең болса
+             if event.key == pygame.K_RIGHT: 
                  index = (index + 1) % len(playlist)
                  pygame.mixer.music.load(playlist[index])
                  pygame.mixer.music.play()
  
-             if event.key == pygame.K_LEFT: #егер сол жаққа тең болса
+             if event.key == pygame.K_LEFT: 
                  index = (index - 1) % len(playlist)
                  pygame.mixer.music.load(playlist[index])
                  pygame.mixer.music.play()
-     #музыка аты шығатын жер 
+     #музыка аты 
      text2 = font2.render(os.path.basename(playlist[index]), True, (20, 20, 50))
      
-     # әр кнопканың орналасуын, көлемін көрсетеміз
+     # кнопка
      screen.blit(bg, (155, 500))
      screen.blit(text2, (365, 520))
      playb = pygame.transform.scale(playb, (70, 70))
